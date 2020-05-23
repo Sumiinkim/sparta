@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스파르타코딩클럽 | 자바스크립트 복습</title>
+    <script>
+        let i = 0;
+        function handleClick() {
+            i += 1;
+            if (i % 2 == 0) {
+                alert('짝짝짝👏');
+               } else{
+                    alert('홀홀홀🎅');
+                }
+        
+            // 클릭에 따라 다른 얼럿을 띄웁니다.
+        }
+        let txt =$('#q1').val();
+        if(txt == ''){
+            alert('입력하세요!')
+        }
+
+        if($("#q1").val() == ""){ 
+            alert("아이디 입력바람"); 
+        $("#q1").focus(); return false;}
+        
+        <script type="text/javascript">
+
+$(document).ready(function(){
+
+    $(".error").hide();
+
+    
+
+    $("#checkVal").click( function(event){
+
+        
+
+        /** 사용자 아이디 체크 **/
+
+        var userId   = $("#q1").val();
+
+        var idLen    = userId.length;
+
+        
+
+        if(idLen < 1){
+
+            $("#errMsg_01").show();
+
+            $("#errMsg_01").text("비어있음");
+
+            event.preventDefault();
+
+        }
+
+        else{
+
+            $("#errMsg_01").hide();
+
+        }
+
+
+
+출처: https://namik.tistory.com/107 [남익의 생활]
+
+
+        function handleclick(){
+                    alert("주문이 완료되었습니다.")
+        }
+//연습
+
+$('#q1').keypress(function (e) 
+{ if (e.which == 13) { if($('#inputbox아이디').val()=='') 
+{ alert('inputbox아이디에 내용을 입력하세요'); } 
+else { $('#q2').focus(); } } });
+    </script>
+</head>
+
+<body>
+    <button onclick="handleClick()">이 버튼을 눌러보세요</button>
+</body>
+
+</html>

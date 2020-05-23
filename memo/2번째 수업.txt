@@ -1,0 +1,30 @@
+let 선언하고 엔터치고
+
+콘솔에 let temp_html = `<div class="card">
+                    <img class="card-img-top"
+                        src="${img_url}"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <a href="${link_url}" class="card-title">${title}</a>
+                        <p class="card-text">${desc}</p>
+                        <p class="card-text comment">${comment}</p>
+                    </div>
+                </div>`;
+
+엔터치고
+function openclose(){
+$("#post-box").show();
+}
+
+버튼 펑션 오픈클로스
+얼럿
+
+(연결) 버튼 온클릭 오픈클ㄹ로스
+
+{} 짝 맞추기!!!!!!
+
+"<li>"+ name + "<li>"
+문자열 더하기 문자열 
+따옴표 안쓸경우 숫자로 인식해서 숫자끼리 더해짐
+ajax 사용시 j쿼리 임포트가 필수!
+
