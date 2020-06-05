@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowhere.com</Nowhere>
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Black And White Picture', sans-serif;
+        }
+
+        .mytitle {
+            widows: 500px;
+            height: 500px;
+            text-align: center;
+
+            margin: 50px auto auto auto;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('#orders-box').html('');
+            listing();
+        });
+        function listing() {
+            alert("test")
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+                success: function (response) { // 서버에서 준 결과를 response라는 변수에 담음
+                    
+                    let exchange_rate = response[1]["rate"];
+                    alert(exchange_rate)
+                    $("#result_won").append(exchange_rate)
+                }
+            });
+        }
+    </script>
+    <script>
+            // alert("asasdfasf")
+            // $.ajax({
+            //     type: "GET",
+            //     url: "https://api.manana.kr/exchange/rate.json",
+            //     data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+            //     success: function (response) { // 서버에서 준 결과를 response라는 변수에 담음
+            //         alert(response)
+            //         let exchange_rate = response[1]["rate"];
+            //     }
+            //     //     $('#exchange').ready(function () {
+                   
+                
+
+                
+            //     // }
+            // // })
+            //     });
+
+
+        //유효성 검사..   
+        //jqyery는 ID부여, 
+        //let txt = $("#부여한 ID").val();
+        //if(부여한 ID == '') {alert('입력하세요')}
+        //
+        function handleclick() {
+            let txt = $("#q1").val();
+            let number = $("#q2").val();
+            let txt2 = $("#q3").val();
+            let txt3 = $("#q4").val();
+
+            if (txt == "") {
+                alert("이름을 입력해주세요");
+                $('#txt').focus();
+                return;
+            } else if (number == "") {
+                alert("수량을 입력해주세요");
+                $('#number').focus();
+                return;
+            } else if (txt2 == "") {
+                alert("주소란이 비어있습니다");
+                $('#txt2').focus();
+                return;
+            } else if (txt3 == "") {
+                alert("전화번호를 입력해주세요");
+                $('#txt3').focus();
+                return;
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/shopping_post",
+                    data: {txt_give : txt, number_give : number, txt2_give : txt2, txt3_give : txt3 },
+                    success: function(response){
+                    }
+                    
+                })
+                // ajax {response {alert("주문이 완료")}}}
+                // alert("주문이 완료되었습니다");
+            }
+        }
+   //여기서 뭔가 시작하면 자꾸 빨간줄이 뜬다
+    </script>
+
+</head>
+
+<body>
+    <div class="mytitle">
+        <P>
+            <img
+                src="data:image/jpeg;base64,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" />
+        </P>
+
+        <p>
+        <h1>지니와 요술램프 </h1>
+        <h4>가격:50,000,000원/개</h4>
+        </p>
+        <p>
+        <h4><small>어떤 소원이든 들어주는 지니와 요술램프입니다. 총 세가지 소원을 빌 수 있습니다. 소원을 비는 방법은 지니 요정을 부르면 된답니다. 지니 요정은 어떻게 부르냐구요? 요술램프 손잡이를
+                잡고 옆면을 문지르면 된답니다.</small></h4>
+        <p>
+        <h2>주문하기</h2>
+        </p>
+        <p>
+         달러-원 환율: <span id="result_won"></span>
+        </p>
+        <div>
+        <url id="exchange"
+            src="https://api.manana.kr/exchange/rate.json"/>
+        </div>
+        </p>
+        주문자 성함 : <input id="q1" type="text" />
+        <P>
+            수량 : <input id="q2" type="number" />
+        </P>
+        <P>
+            주소: <input id="q3" type="text" />
+        </P>
+        <P>
+            전화번호 : <input id="q4" type="text" />
+        </P>
+        <P>
+            <button onclick="handleclick()"> 주문하기</button>
+        </P>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">성함</th>
+      <th scope="col">수량</th>
+      <th scope="col">주소</th>
+      <th scope="col">전화번호</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>010-5555-5555</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</body>
+
+</html>
